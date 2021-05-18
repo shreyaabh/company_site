@@ -1,0 +1,160 @@
+{% extends 'Home/navbar.html' %} {%block content%}{%load static%}<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Team</title>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link href="{% static "Home/bootstrap.css" %}" rel='stylesheet' />
+
+    <link href="{% static "Home/pe-icon-7-stroke.css"%}" rel="stylesheet" />
+
+<!--     <link href='css/ct-navbar.css' rel='stylesheet' /> -->
+    <link href="{% static 'Home/rotating-card.css'%}" rel='stylesheet' />
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        body{
+            margin-top: 100px;
+        }
+        .navbar-default .navbar-nav > li > a{
+            padding: 15px 15px;
+            margin: 5px 0;
+        }
+
+        .navbar-default{
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-color: transparent;
+            box-shadow: 0 0px 13px rgba(0,0,0,.2);
+        }
+        .btn-info,
+        .btn-info:hover,
+        .btn-info:focus{
+            color: #FFF !important;
+            background-color: #00bbff !important;
+            border-color: #00bbff !important;
+        }
+
+        .btn-info{
+            opacity: .8;
+            transition: all 0.1s;
+            -webkit-transition: all 0.1s;
+        }
+        .btn-info:hover,
+        .btn-info:focus{
+            opacity: 1;
+        }
+    </style>
+</head>
+<div class="container">
+
+    <div class="row">
+        <h1 class="title">
+            Our Team
+            <br>
+            <small>Present your team in an interesting way</small>
+        </h1> 
+        <div class="col-sm-10 col-sm-offset-1">{%for about in abouts%}
+         <div class="col-md-4 col-sm-6">
+             <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="{% static "Home/architecture.jpg" %}"/> 
+
+
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="{{about.Image.url }}"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">{{about.Name}}</h3>
+                                <p class="profession">{{about.Designation}}</p>
+                                
+                            </div>
+                            <div class="footer">
+                                <i class="fa fa-mail-forward"></i> Auto Rotation
+                            </div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="content">
+                            <div class="main">
+                                <h4 class="text-center">{{about.Description}}</h4>
+                                <p class="text-center"{{about.Description}}</p>
+
+                                {% comment %} <div class="stats-container">
+                                    <div class="stats">
+                                        <h4>235</h4>
+                                        <p>
+                                            Followers
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>114</h4>
+                                        <p>
+                                            Following
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>35</h4>
+                                        <p>
+                                            Projects
+                                        </p>
+                                    </div>
+                                </div> {% endcomment %}
+
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="https://creative-tim.com" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                                <a href="https://creative-tim.com" class="google"><i class="fa fa-instagram fa-fw"></i></a>
+                                <a href="https://creative-tim.com" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col sm 3 -->{%endfor%}
+
+
+<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $('[rel="tooltip"]').tooltip();
+
+        $('a.scroll-down').click(function(e){
+            e.preventDefault();
+            scroll_target = $(this).data('href');
+             $('html, body').animate({
+                 scrollTop: $(scroll_target).offset().top - 60
+             }, 1000);
+        });
+
+    });
+
+    function rotateCard(btn){
+        var $card = $(btn).closest('.card-container');
+        console.log($card);
+        if($card.hasClass('hover')){
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
+
+
+</script>
+
+</body>
+</html>{%endblock%}

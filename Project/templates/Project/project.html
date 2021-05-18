@@ -1,0 +1,41 @@
+
+{% extends 'Home/navbar.html' %} {%block content%} {%load static%}<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Projects</title>
+    <link href="{% static "Project/project.css" %}" rel='stylesheet' />
+  </head>
+  <body>
+    <br /><br />
+    <center><h1 class="title">
+      Number of Project</h1><h1 class="title" id="typing">{{projects.count}} project{{projects.count|pluralize}}</h1>
+    </h1></center>
+    {%for project in projects%}
+    <div class="blog-post">
+      <div class="blog-post-img">
+        <img src="{{ project.Image.url }}" alt="image" />
+      </div>
+      <div class="blog-post-info">
+        <div class="blog-post-title">
+          <h2>{{project.Title}}</h2>
+        </div>
+        <div class="blog-post-date">
+          <span>{{project.Day}}</span>
+          <span>{{project.Date}}</span>
+        </div>
+        <div class="blog-post-desc">
+          <p>{{project.Description}}</p>
+        </div>
+        <div class="blog-post-read-more">
+          <a href="{% url 'Project:detail' 1 %}">Read More</a>
+        </div>
+      </div>
+    </div>
+  </body>
+  {%endfor%} {%endblock%}
+</html>

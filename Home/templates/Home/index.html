@@ -1,0 +1,69 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AVTECH COMPANY</title>
+    <link rel="stylesheet" href="{% static "Home/style.css" %}" />
+    <link rel="icon" type="image/png" href="{% static "Home/logo.png" %}">
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="menu">
+          <img height= '10%' width= '10%'src="{% static 'Home/logo.png' %}" class="rotate_01"/>
+          <text style="color:white;"> AVTECH COMPANY PVT.LTD. </text>
+          <div class="hamburger-menu">
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="main">
+          <header>
+            <div class="overlay">
+              <div class="inner">  
+                <h3 class="title">INNOVATION INTO DESIGN</h3>
+                <p>
+                  AVTECH COMPANY Pvt. Ltd. was established in 2015 by group of engineers with a goal to provide Professional and Ethical Engineering services for all.
+                </p>
+                <a href="{% url 'about'%}"><button class="btn">About Us</button></a>
+                <pre> <h2 style="text-align:initial;">CONSTRUCTION |  DESIGN  |  SUPERVISION  |  3D MODELING  |  VALUATION</h2> </pre>
+              </div>
+            </div>
+          </header>
+        </div>
+        
+
+        <div class="shadow one"></div>
+        <div class="shadow two"></div>
+      </div>
+
+      <div class="links">
+        <ul>
+          <li>
+            <a href="{% url 'home'%}" style="--i: 0.05s">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'Project:project'%}" style="--i: 0.1s">Projects</a>
+          </li>
+          <li>
+            <a href="{% url 'services'%}" style="--i: 0.15s">Services</a>
+          </li>
+          <li>
+            <a href="{% url 'about'%}" style="--i: 0.25s">About Us</a>
+          </li>
+          <li>
+            <a href="{% url 'contact'%}" style="--i: 0.3s">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="{% static "Home/home.js" %}"></script>
+
+  </body>
+</html>

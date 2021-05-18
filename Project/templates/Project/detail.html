@@ -1,0 +1,22 @@
+{% extends 'Home/navbar.html'%} {% block content%}
+<br />
+<head>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-image: linear-gradient(135deg, #ddf969 0%, #124653 74%);
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <h1 class="title">{{projects.Title}}</h1>
+
+    <img src="{{ projects.Image.url }}" alt="tree" height="30%" width="40%" />
+
+    <h2 style="color: white">{{projects.Date}}</h2>
+    <p style="color: white">{{projects.Description|safe}}</p>
+  </center>
+</body>
+{%endblock%}

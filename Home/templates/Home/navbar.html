@@ -1,0 +1,20 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static "Home/navbar.css" %}" /> <link
+    rel="icon" type="image/png" href="{% static "Home/logo.png" %}">
+  </head>
+  <body>
+    <ul class="sidenav" id="nav">
+      <li><a class="active" href="{% url 'home'%}">Home</a></li>
+      <li><a href="{% url 'Project:project'%}">Projects</a></li>
+      <li><a href="{% url 'services'%}">Services</a></li>
+      <li><a href="{% url 'about'%}">About Us</a></li>
+      <li><a href="{% url 'contact'%}">Contact Us</a></li>
+    </ul>
+
+    {%block content%}{%endblock%}
+  </body>
+</html>
